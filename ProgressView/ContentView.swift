@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var hideProgressView = true
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Spacer()
+            
+            if !hideProgressView {
+                ProgressView()
+                    .scaleEffect(4)
+                    .tint(.red)
+            }
+            
+            Spacer()
+            Button("Show / Hide Progress View") {
+                hideProgressView.toggle()
+            }
         }
         .padding()
     }
